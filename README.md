@@ -1,4 +1,4 @@
-## Submit Jokes µS (Microservice)
+## Submit Jokes Microservice
 
 **Database Used:** MongoDB Atlas (Document-oriented database)
 
