@@ -28,7 +28,7 @@ const addJoke = async (req: Request, res: Response) => {
 const deleteJoke = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    const joke = await Joke.findByIdAndDelete(id);
+    const joke = await Joke.findOneAndDelete({ jokeId: id });
     if (!joke) {
       res.status(404).json('Joke not found');
       return;

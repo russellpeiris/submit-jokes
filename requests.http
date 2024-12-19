@@ -3,7 +3,7 @@ Host: localhost:4001
 Content-Type: application/json
 
 {
-  "joke": "Why did the scarecrow win an award? Because he was outstanding in his field!",
-  "category": "Dad Jokes"
+    "joke": "What do you call a fake noodle? An Impasta!",
+    "category": "Dad Jokes"
 }
 
