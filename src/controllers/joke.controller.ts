@@ -1,10 +1,14 @@
 import { Request, Response } from 'express';
 import { Joke } from '../models/joke.model';
 
-const getJokes = async (req: Request, res: Response) => {
+const getNextUnmoderatedJoke = async (req: Request, res: Response) => {
   try {
-    const jokes = await Joke.find();
-    res.status(200).json(jokes);
+    const joke = await Joke.findOne({ status: 'unmoderated' });
+    if (!joke) {
+      res.status(404).json('No jokes to moderate');
+      return;
+    }
+    res.status(200).json(joke);
   } catch (error: any) {
     res.status(500).json(`Error: ${error.message}`);
   }
@@ -21,4 +25,18 @@ const addJoke = async (req: Request, res: Response) => {
   }
 };
 
-export { getJokes, addJoke };
+const deleteJoke = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const joke = await Joke.findByIdAndDelete(id);
+    if (!joke) {
+      res.status(404).json('Joke not found');
+      return;
+    }
+    res.status(200).json(joke);
+  } catch (error: any) {
+    res.status(500).json(`Error: ${error.message}`);
+  }
+};
+
+export { addJoke, deleteJoke, getNextUnmoderatedJoke };

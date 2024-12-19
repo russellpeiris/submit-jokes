@@ -1,6 +1,11 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
 
 const jokesSchema = new Schema({
+  jokeId: {
+    type: String,
+    required: true,
+    default: () => new Types.ObjectId().toString(),
+  },
   joke: {
     type: String,
     required: true,

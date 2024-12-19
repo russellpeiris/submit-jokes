@@ -1,7 +1,13 @@
 import { Router } from 'express';
-import { addJoke, getJokes } from '../controllers/joke.controller';
+import {
+  addJoke,
+  deleteJoke,
+  getNextUnmoderatedJoke,
+} from '../controllers/joke.controller';
 
 export const jokesRouter = Router();
 
-jokesRouter.get('/', getJokes);
+jokesRouter.get('/', getNextUnmoderatedJoke);
 jokesRouter.post('/', addJoke);
+jokesRouter.delete('/:id', deleteJoke);
+jokesRouter.patch('/:id');
