@@ -1,18 +1,23 @@
+import axios from 'axios';
 import { Request, Response } from 'express';
 import { Category } from '../models/category.model';
-import axios from 'axios';
 
 const addCategory = async (req: Request, res: Response) => {
   const { category } = req.body;
   try {
     const newCategory = new Category({ category });
-    await newCategory.save();
 
-    await axios.post(`${process.env.DELIVER_SERVICE_URL}/category`, {
-      category,
-    });
+    const deliverResponse = await axios.post(
+      `${process.env.DELIVER_SERVICE_URL}/deliver-service/category`,
+      {
+        category,
+      },
+    );
 
-    res.status(201).json(category);
+    if (deliverResponse.status == 201) {
+      await newCategory.save();
+      res.status(201).json(category);
+    }
   } catch (error: any) {
     res.status(500).json(`Error: ${error.message}`);
   }

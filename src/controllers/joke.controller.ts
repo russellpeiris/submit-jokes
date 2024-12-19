@@ -5,7 +5,7 @@ const getNextUnmoderatedJoke = async (req: Request, res: Response) => {
   try {
     const joke = await Joke.findOne({ status: 'unmoderated' });
     if (!joke) {
-      res.status(404).json('No jokes to moderate');
+      res.status(200).json('No jokes to moderate');
       return;
     }
     res.status(200).json(joke);
