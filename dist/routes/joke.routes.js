@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.jokesRouter = void 0;
+const express_1 = require("express");
+const joke_controller_1 = require("../controllers/joke.controller");
+exports.jokesRouter = (0, express_1.Router)();
+exports.jokesRouter.get('/', joke_controller_1.getNextUnmoderatedJoke);
+exports.jokesRouter.post('/', joke_controller_1.addJoke);
+exports.jokesRouter.delete('/:id', joke_controller_1.deleteJoke);
+exports.jokesRouter.patch('/:id');

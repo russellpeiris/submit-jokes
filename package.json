@@ -4,7 +4,7 @@
   "description": "submit-joes",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "start": "node dist/index.js",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -36,6 +36,7 @@
   "dependencies": {
     "axios": "^1.7.9",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
