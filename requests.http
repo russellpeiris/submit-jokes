@@ -1,9 +1,0 @@
-POST /submit-service/jokes HTTP/1.1
-Host: localhost:4001
-Content-Type: application/json
-
-{
-    "joke": "What do you call a fake noodle? An Impasta!",
-    "category": "Dad Jokes"
-}
-

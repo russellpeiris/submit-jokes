@@ -5,8 +5,9 @@ import { connectDB } from './configs/DBConnect';
 import { categoryRouter } from './routes/category.routes';
 import { jokesRouter } from './routes/joke.routes';
 
-const env = process.env.NODE_ENV || 'local';
-dotenv.config({ path: `.env.${env}` });
+const environment = process.env.NODE_ENV || 'development';
+console.log('environment :', environment);
+dotenv.config({ path: `.env.${environment}` });
 
 const app = express();
 const port = process.env.PORT || 4001;

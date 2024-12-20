@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { Request, Response } from 'express';
 import { Category } from '../models/category.model';
+import dotenv from 'dotenv';
+
+const environment = process.env.NODE_ENV || 'development';
+console.log('environment :', environment);
+dotenv.config({ path: `.env.${environment}` });
 
 const addCategory = async (req: Request, res: Response) => {
   const { category } = req.body;
