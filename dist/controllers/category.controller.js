@@ -15,6 +15,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getJokeCategories = exports.addCategory = void 0;
 const axios_1 = __importDefault(require("axios"));
 const category_model_1 = require("../models/category.model");
+const dotenv_1 = __importDefault(require("dotenv"));
+const environment = process.env.NODE_ENV || 'development';
+console.log('environment :', environment);
+dotenv_1.default.config({ path: `.env.${environment}` });
 const addCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { category } = req.body;
     try {
