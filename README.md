@@ -1,16 +1,11 @@
-## Submit Jokes Microservice
+### Submit Jokes Microservice
 
-**Database Used:** MongoDB Atlas (Document-oriented database)
+#### Points to highlight
+- Https enabled
+- Husky pre-commit hooks
+- Deployed on Azure VM
+- Nginx reverse proxy 
+- Free SSL certificate from Let's Encrypt
+- Certbot for auto-renewal of SSL certificate
 
-**Purpose:** This microservice handles new joke submissions.
-
-**Stored Data:**
-
-- **Unmoderated Jokes:** When a user submits a joke, it is stored here as "unmoderated."
-
-**Fields stored in MongoDB:**
-
-- Joke content
-- Joke category
-- Submission date/time
-- Status: unmoderated
+Served at [https://submit-service.ddns.net](https://submit-service.ddns.net)
